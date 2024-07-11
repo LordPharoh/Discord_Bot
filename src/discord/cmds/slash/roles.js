@@ -88,18 +88,18 @@ module.exports =
 			if (addedRoles.length > 0 && removedRoles.length > 0)
 			{
 				desc = '**Your roles have been updated!**\n_ _\n';
-				desc += `${addedRoles.map(roleId => `<:plus:1259498381206618164> <@&${roleId}>`).join('\n')}\n_ _\n`;
-				desc += `${removedRoles.map(roleId => `<:minus:1259498392116133918> <@&${roleId}>`).join('\n')}`;
+				desc += `${addedRoles.map(roleId => `<:plus:1260822354926370826> <@&${roleId}>`).join('\n')}\n_ _\n`;
+				desc += `${removedRoles.map(roleId => `<:minus:1260822626914275400> <@&${roleId}>`).join('\n')}`;
 			}
 			else if (addedRoles.length > 0)
 			{
 				desc = '**Your roles have been updated!**\n_ _\n';
-				desc += `${addedRoles.map(roleId => `<:plus:1259498381206618164> <@&${roleId}>`).join('\n')}\n_ _`;
+				desc += `${addedRoles.map(roleId => `<:plus:1260822354926370826> <@&${roleId}>`).join('\n')}\n_ _`;
 			}
 			else if (removedRoles.length > 0)
 			{
 				desc = '**Your roles have been updated!**\n_ _\n';
-				desc += `${removedRoles.map(roleId => `<:minus:1259498392116133918> <@&${roleId}>`).join('\n')}\n_ _`;
+				desc += `${removedRoles.map(roleId => `<:minus:1260822626914275400> <@&${roleId}>`).join('\n')}\n_ _`;
 			}
 			else
 			{

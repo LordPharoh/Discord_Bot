@@ -6,7 +6,7 @@ const info = new EmbedBuilder()
 	.setColor('00FF00')
 	.setDescription
 	(
-		'### <:white_check_mark:1244687091162415176> Link your Account!\n' +
+		'### <:gcheck:622326625530544128> Link your Account!\n' +
         'Connect your Hypixel account to gain server access.\n' +
         '\n' +
         '*Please contact a staff member if the bot is down or if you require further assistance.*'
