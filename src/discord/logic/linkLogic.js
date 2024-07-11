@@ -1,8 +1,9 @@
 const { EmbedBuilder, ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 const fs = require('fs');
-const { welcomeRole, welcomeRoleToggle, linkedRole, gRole, sbRoles } = require('../../../config.json');
+const { welcomeRole, welcomeRoleToggle, linkedRole, gRole, sbRoles, statusChannel } = require('../../../config.json');
 const hypixel = require('../../contracts/hapi.js');
 const { Errors } = require('hypixel-api-reborn');
+const { channel } = require('diagnostics_channel');
 
 const success = (interaction) =>
 {
@@ -106,14 +107,18 @@ async function linkLogic(interaction)
 
 		// Set Nickname + Assign linkedRole
 
-		try { await interaction.member.setNickname(player.nickname); } catch (e) { if (e.message.includes('Missing Permissions')) { noPerms(interaction); console.log(e); } }
-		if (!interaction.member.roles.cache.has(linkedRole)) { await interaction.member.roles.add(linkedRole);  }
-		if (welcomeRoleToggle) { if (interaction.user.roles.cache.has(welcomeRole)) { interaction.user.roles.remove(welcomeRole); } }
+		try { await interaction.member.setNickname(player.nickname); }
+		catch (e) { if (e.message.includes('Missing Permissions')) { noPerms(interaction); console.log(e); } }
+		if (!interaction.member.roles.cache.has(linkedRole)) { await interaction.member.roles.add(linkedRole); } 
+		// if (welcomeRoleToggle) { if (interaction.user.roles.cache.has(welcomeRole)) { interaction.user.roles.remove(welcomeRole); } }
 
 		// Assign gRole
 
-		const guild = await hypixel.getGuild('player', `${player.nickname}`); console.log(`guild found! : ${guild.name}`);
-		if (guild && guild.name == 'Sb Eternals') { console.log('Player is in guild SB Eternals'); if (!interaction.member.roles.cache.has(gRole)) { await interaction.member.roles.add(gRole); } } 
+		const guild = await hypixel.getGuild('player', `${player.nickname}`); 
+		// const channel = this.client.channels.cache.get(statusChannel);
+		// channel.send(`${player.nickname} is in guild ${guild.name}!`);
+		if (guild && guild.name == 'Sb Eternals')
+		{ if (!interaction.member.roles.cache.has(gRole)) { await interaction.member.roles.add(gRole); } } 
 		else { if (interaction.member.roles.cache.has(gRole)) { await interaction.member.roles.remove(gRole); } }
 
 		// Assign sbRole

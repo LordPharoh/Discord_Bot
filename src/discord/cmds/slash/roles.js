@@ -39,7 +39,7 @@ module.exports =
 			const addedRoles = [];
 			const removedRoles = [];
 
-			if (guild && guild.name === 'SB Eternals')
+			if (guild && guild.name === 'Sb Eternals')
 			{
 				if (!interaction.member.roles.cache.has(gRole))
 				{
