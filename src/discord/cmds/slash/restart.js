@@ -32,7 +32,7 @@ module.exports =
 
 	async execute(interaction) 
 	{
-		if (notCatboy(interaction)) { return; };
+		if (notPharoh(interaction)) { return; };
 
 		exec('git pull && pm2 restart Discord', errors);
 		
