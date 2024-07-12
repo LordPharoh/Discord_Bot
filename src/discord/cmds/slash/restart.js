@@ -34,7 +34,7 @@ module.exports =
 	{
 		if (notCatboy(interaction)) { return; };
 
-		exec('git pull && pm2 restart wsr', errors);
+		exec('git pull && pm2 restart Discord', errors);
 		
 		interaction.reply({ embeds: [restart] });
 	}
