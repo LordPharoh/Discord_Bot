@@ -4,7 +4,7 @@ const { LordPharoh } = require('../../../../auth.json');
 
 const restart = new EmbedBuilder().setColor('000000').setDescription('**Restarting...**');
 
-const notCatboy = (interaction) => 
+const notPharoh = (interaction) => 
 {
 	const notPharoh = new EmbedBuilder().setColor('FF0000').setDescription('**Only <@297354613143764994> can use this command!**'); 
 
