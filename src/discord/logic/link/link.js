@@ -66,10 +66,10 @@ async function link(interaction)
 	{
 		const player = await getPlayer(input);
 		const discord = await getDiscord(input);
-		if (!discord || discord === null)
+		if (!discord || discord === null) 
 			return interaction.followUp({ embeds: [notLinked] });
-		if (interaction.user.username !== discord)
-			return interaction.followUp({ embed: [noMatch] });
+		if (interaction.user.username !== discord) 
+			return interaction.followUp({ embeds: [noMatch] });
 
 		await Link.create({ uuid: player.uuid, dcid: interaction.user.id }).catch(() => {});
 
